@@ -1,14 +1,10 @@
-import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
-import { useState } from "react";
 import { Login } from "./components/Login";
-import { GivePassAgain } from "./components/ForgotPass";
 
 function App() {
   return (
     <div className="App">
-      <Login></Login>
+      <Login name="longlongtttt113@gmail.com" password="12345678" ></Login>
     </div>
   );
 }

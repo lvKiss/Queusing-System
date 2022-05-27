@@ -7,6 +7,7 @@ import RightImage from "../../src/assert/right_image.jpg";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Button , FormControl, InputGroup } from 'react-bootstrap';
 import { IconButton } from "@material-ui/core";
+
 const Container = styled.div`
   display: flex;
   flex-direction: row;
@@ -123,63 +124,65 @@ const ImageRight = styled.img`
   height: 90%;
   background-size: cover;
 `;
-
-export const Login = () => {
+type User = {
+  name: string
+  password: string
+};
+export const Login = (props: User) => {
   return (
     <div>
-      <Container>
-        <BlockLeft>
-          <Wrapper>
-            <Image src={logoLogin} />
-            <Form>
-              <Label htmlFor="">Tên đăng nhập *</Label>
-              {/* <InputGroup className="mb-3">
-                <FormControl
-                  placeholder="Username"
-                  aria-label="Username"
-                  aria-describedby="basic-addon1"
+    <Container>
+      <BlockLeft>
+        <Wrapper>
+          <Image src={logoLogin} />
+          <Form>
+            <Label htmlFor="">Tên đăng nhập *</Label>
+            <Input placeholder="username" required value={props.name} />
+            <Label htmlFor="">Mật khẩu *</Label>
+            <PassContainer>
+              <Input
+                style={{ width: "17.5rem" }}
+                placeholder="password"
+                type={"password"}
+                value={props.password}
+                required
+              />
+              <ObVisibilityOff>
+                <VisibilityOff
+                  style={{
+                    backgroundColor: "white",
+                    fontSize: "auto",
+                    textAlign: "right",
+                  }}
                 />
-              </InputGroup> */}
-              <Input placeholder="username" required />
-              <Label htmlFor="">Mật khẩu *</Label>
-              <PassContainer>
-                <Input
-                  style={{ width: "17.5rem" }}
-                  placeholder="password"
-                  type={"password"}
-                  required
-                />
-                {/* <InputGroup className="mb-3">
-                <FormControl
-                  type="password"
-                  placeholder="Password"
-                  aria-label="Password"
-                  aria-describedby="basic-addon1"
-                /> */}
-                <ObVisibilityOff>
-                  <VisibilityOff
-                    style={{
-                      backgroundColor: "white",
-                      fontSize: "auto",
-                      textAlign: "right",
-                    }}
-                  />
-                </ObVisibilityOff>
-               
-              {/* </InputGroup> */}
-         
-              </PassContainer>
-              <MainButton>
-                <Button variant="btn btn-warning btn-lg mt-2">Đăng Nhập</Button>
-                <Links href="/quen-mat-khau">Quên mật khẩu?</Links>
-              </MainButton>
-            </Form>
-          </Wrapper>
-        </BlockLeft>
-        <BlockRight>
-          <ImageRight src={RightImage} />
-        </BlockRight>
-      </Container>
-    </div>
-  );
+              </ObVisibilityOff>
+            </PassContainer>
+            <Notification>
+              <ErrorOutline
+                style={{
+                  color: "red",
+                }}
+              />
+              <LabelNotification>
+                Sai tên đăng nhập hoặc mật khẩu
+              </LabelNotification>
+            </Notification>
+
+            <MainButton>
+              <Link to={"/dang-nhap"}>
+                <Button>Đăng Nhập</Button>
+              </Link>
+              <Link to={"/quen-mat-khau"}>
+                <Links>Quên mật khẩu?</Links>
+              </Link>
+            </MainButton>
+          </Form>
+        </Wrapper>
+      </BlockLeft>
+      <BlockRight>
+        <ImageRight src={RightImage} />
+      </BlockRight>
+    </Container>
+  </div>
+  )
 };
