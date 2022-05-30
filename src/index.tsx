@@ -8,6 +8,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { MyDashboard } from './components/MyDashboard';
 import { GivePassAgain } from './components/GivePassAgain';
 import { GivePassAgainNew } from './components/GivePassAgainNew';
+import Person from './components/Person';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -23,6 +24,7 @@ root.render(
         element={<Login name="longlongtttt113@gmail.com" password="12345678" />}
       />
       <Route path="/dat-lai-mat-khau" element={<GivePassAgainNew />} />
+      <Route path="/bieudo" element={<Person/>} />
     </Routes>
   </BrowserRouter>
 </React.StrictMode>
